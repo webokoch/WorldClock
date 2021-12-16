@@ -1,0 +1,133 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: monospace;
+    font-size: 24px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* --- TimeZones --- */
+.zones {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.zone {
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.3);
+    color: white;
+    transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.zone1 { background-image: url(https://images.unsplash.com/photo-1582792762832-57e738af57a2?w=1500&h=1500); }
+
+.zone2 { background-image: url(https://images.unsplash.com/photo-1486347054965-e51882f34710?w=1500&h=1500); }
+
+.zone3 { background-image: url(https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=1500&h=1500); }
+
+.zone4 { background-image: url(https://images.unsplash.com/photo-1603787935137-58167f55336f?w=1500&h=1500); }
+
+.zone5 { background-image: url(https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1500&h=1500); }
+
+.zone6 { background-image: url(https://images.unsplash.com/photo-1584660470766-20ac1a28c7fe?w=1500&h=1500); }
+
+.zone7 { background-image: url(https://images.unsplash.com/photo-1514294393539-47d3b28b819d?w=1500&h=1500); }
+
+.zone > * {
+    transition: transform 0.5s; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin: 0;
+    flex: 1;   
+}
+
+.zone p {
+    font-weight: bold;
+}
+
+.zone.open {
+    flex: 5;
+    font-size: 4rem;
+}
+
+.zone.open-active > *:first-child { transform: translateY(-10%); }
+
+.zone > *:first-child { transform: translateY(100%); }
+
+.zone.open-active > *:nth-child(2) { transform: translateY(0%); }
+
+.zone > *:nth-child(2) { transform: translateY(200%); }
+
+.zone.open-active > *:last-child { transform: translateY(0%); }
+
+.zone > *:last-child { transform: translateY(100%); }
+
+/* --- Clocks --- */
+.clock {
+    visibility: hidden;
+    transition: transform 0.5s; 
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid white;
+    border-radius: 50%;
+    margin: 2px auto;
+    position: relative;
+    padding: 0.5rem; 
+    flex: 1;
+    box-shadow:
+      0 0 0 4px rgba(0,0,0,0.1),
+      inset 0 0 0 3px #EFEFEF,
+      inset 0 0 10px black,
+      0 0 10px rgba(0,0,0,0.2);
+    background-color: rgba(147, 170, 194, 0.9);
+}
+
+.clock-face {
+    width: 100%;
+    height: 100%;
+    transform: translateY(-4px);
+}
+
+.hand {
+    width: 50%;
+    height: 4px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hour-hand {
+    width: 40%;
+    height: 5px;
+    transform: translateY(-5px);
+    left: 10%;
+}
+    
+.second-hand {
+    height: 3px;
+    transform: translateY(-3px);
+}
+
+.zone.open > * .clock {
+    visibility: unset;
+    width: 10rem;
+    height: 10rem;
+}
