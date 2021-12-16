@@ -5,20 +5,14 @@ function toggleOpen(){
     zones.forEach(zone => {
     if (zone.classList.contains('open') && zone != this) {
         zone.classList.remove('open');
+        zone.classList.remove('open-active')
         }
     });
     this.classList.toggle('open');
-};
-
-function toggleActive(event) {
-    console.log(event.propertyName)
-    if (event.propertyName.includes('flex-grow') || event.propertyName.includes('visibility')) 
     this.classList.toggle('open-active')
-    
 };
 
 zones.forEach(zone => zone.addEventListener('click', toggleOpen));
-zones.forEach(zone => zone.addEventListener('transitionend', toggleActive));
 
 // --- TimeZones ---
 var DateTime = luxon.DateTime; // using luxon library https://moment.github.io/luxon/#/
