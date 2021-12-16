@@ -12,7 +12,7 @@ function toggleOpen(){
 
 function toggleActive(event) {
     console.log(event.propertyName)
-    if (event.propertyName.includes('flex') || event.propertyName.includes('visibility')) {
+    if (event.propertyName.includes('visibility')) {
     this.classList.toggle('open-active');
     };
 };
