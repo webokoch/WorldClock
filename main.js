@@ -12,9 +12,9 @@ function toggleOpen(){
 
 function toggleActive(event) {
     console.log(event.propertyName)
-    if (event.propertyName.includes('visibility')) {
-    this.classList.toggle('open-active');
-    };
+    if (event.propertyName.includes('flex-grow') || event.propertyName.includes('visibility')) 
+    this.classList.toggle('open-active')
+    
 };
 
 zones.forEach(zone => zone.addEventListener('click', toggleOpen));
